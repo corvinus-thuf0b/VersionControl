@@ -33,7 +33,7 @@ namespace UserMaintenance
             var u = new User()
             {
                 LastName = txtLastName.Text,
-                FirstName = txtFirstName
+                FirstName = txtFirstName.Text
             };
             users.Add(u);
         }
