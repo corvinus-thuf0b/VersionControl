@@ -30,9 +30,9 @@ namespace VaR_IRF_05
         private void InitializeComponent()
         {
             this.dgvTicks = new System.Windows.Forms.DataGridView();
-            this.dgrPortfolio = new System.Windows.Forms.DataGridView();
+            this.dgvPortfolio = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrPortfolio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPortfolio)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTicks
@@ -43,25 +43,25 @@ namespace VaR_IRF_05
             this.dgvTicks.Size = new System.Drawing.Size(331, 242);
             this.dgvTicks.TabIndex = 0;
             // 
-            // dgrPortfolio
+            // dgvPortfolio
             // 
-            this.dgrPortfolio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrPortfolio.Location = new System.Drawing.Point(424, 83);
-            this.dgrPortfolio.Name = "dgrPortfolio";
-            this.dgrPortfolio.Size = new System.Drawing.Size(331, 242);
-            this.dgrPortfolio.TabIndex = 1;
+            this.dgvPortfolio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPortfolio.Location = new System.Drawing.Point(424, 83);
+            this.dgvPortfolio.Name = "dgvPortfolio";
+            this.dgvPortfolio.Size = new System.Drawing.Size(331, 242);
+            this.dgvPortfolio.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgrPortfolio);
+            this.Controls.Add(this.dgvPortfolio);
             this.Controls.Add(this.dgvTicks);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrPortfolio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPortfolio)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -69,7 +69,7 @@ namespace VaR_IRF_05
         #endregion
 
         private System.Windows.Forms.DataGridView dgvTicks;
-        private System.Windows.Forms.DataGridView dgrPortfolio;
+        private System.Windows.Forms.DataGridView dgvPortfolio;
     }
 }
 
