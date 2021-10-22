@@ -31,6 +31,7 @@ namespace VaR_IRF_05
         {
             this.dgvTicks = new System.Windows.Forms.DataGridView();
             this.dgvPortfolio = new System.Windows.Forms.DataGridView();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPortfolio)).BeginInit();
             this.SuspendLayout();
@@ -51,11 +52,22 @@ namespace VaR_IRF_05
             this.dgvPortfolio.Size = new System.Drawing.Size(331, 242);
             this.dgvPortfolio.TabIndex = 1;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(337, 364);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(112, 34);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "Mentés";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvPortfolio);
             this.Controls.Add(this.dgvTicks);
             this.Name = "Form1";
@@ -70,6 +82,7 @@ namespace VaR_IRF_05
 
         private System.Windows.Forms.DataGridView dgvTicks;
         private System.Windows.Forms.DataGridView dgvPortfolio;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 
