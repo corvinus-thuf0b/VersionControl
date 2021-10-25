@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Webszolgaltatas_IRF_07
 {
     public partial class Form1 : Form
@@ -15,6 +16,24 @@ namespace Webszolgaltatas_IRF_07
         public Form1()
         {
             InitializeComponent();
+
+            GetEuroExchangeRates();
+        }
+
+        private static void GetEuroExchangeRates()
+        {
+            var mnbService = new MnbServiceReference.MNBArfolyamServiceSoapClient();
+
+            var request = new MnbServiceReference.GetExchangeRatesRequestBody()
+            {
+                currencyNames = "EUR",
+                startDate = "2020-01-01",
+                endDate = "2020-06-30"
+            };
+
+            var response = mnbService.GetExchangeRates(request);
+
+            var result = response.GetExchangeRatesResult;
         }
     }
 }
