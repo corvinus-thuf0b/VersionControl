@@ -7,17 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Webszolgaltatas_IRF_07.Entities;
+
 
 
 namespace Webszolgaltatas_IRF_07
 {
     public partial class Form1 : Form
     {
+        BindingList<RateData> Rates = new BindingList<RateData>();
+
         public Form1()
         {
             InitializeComponent();
-
             GetEuroExchangeRates();
+
+            dgwRates.DataSource = Rates;
         }
 
         private static void GetEuroExchangeRates()
