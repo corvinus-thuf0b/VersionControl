@@ -10,39 +10,48 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 using Webszolgaltatas_IRF_07.Entities;
-
-
+using Webszolgaltatas_IRF_07.MnbServiceReference;
 
 namespace Webszolgaltatas_IRF_07
 {
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
+        
         string r;        
 
         public Form1()
         {
             InitializeComponent();
+            GetCurrencies();
+            RefreshData();
+            rtb.Text = r;
+            rtb.Visible = false;
+            
+        }
+
+        private void RefreshData()
+        {
+            Rates.Clear();
+
             GetEuroExchangeRates();
             GetXmlRates();
             Diagram();
 
             dgwRates.DataSource = Rates;
             chartRateData.DataSource = Rates;
-            rtb.Text = r;
-            rtb.Visible = false;
-
         }
 
         private void GetEuroExchangeRates()
         {
-            var mnbService = new MnbServiceReference.MNBArfolyamServiceSoapClient();
+            var mnbService = new MNBArfolyamServiceSoapClient();
 
-            var request = new MnbServiceReference.GetExchangeRatesRequestBody()
+            var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                currencyNames = comboBox1.SelectedItem.ToString(),
+                startDate = dateTimePicker1.Value.ToString(),
+                endDate = dateTimePicker2.Value.ToString()
             };
 
             var response = mnbService.GetExchangeRates(request);
@@ -66,6 +75,8 @@ namespace Webszolgaltatas_IRF_07
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
@@ -92,6 +103,40 @@ namespace Webszolgaltatas_IRF_07
             chartArea.AxisX.MajorGrid.Enabled = false;
             chartArea.AxisY.MajorGrid.Enabled = false;
             chartArea.AxisY.IsStartedFromZero = false;
+        }
+
+        private void GetCurrencies()
+        {
+            MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
+            GetCurrenciesRequestBody request = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(request);
+            var result = response.GetCurrenciesResult;
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(result);
+
+            foreach (XmlElement element in xml.DocumentElement.ChildNodes[0])
+            {
+                string newElement = element.InnerText;
+                Currencies.Add(newElement);
+                
+            }
+            comboBox1.DataSource = Currencies;
+            
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }
