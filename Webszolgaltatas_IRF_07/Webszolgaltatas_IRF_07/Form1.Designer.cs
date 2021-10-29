@@ -30,6 +30,7 @@ namespace Webszolgaltatas_IRF_07
         private void InitializeComponent()
         {
             this.dgwRates = new System.Windows.Forms.DataGridView();
+            this.rtb = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwRates)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,11 +42,20 @@ namespace Webszolgaltatas_IRF_07
             this.dgwRates.Size = new System.Drawing.Size(367, 345);
             this.dgwRates.TabIndex = 0;
             // 
+            // rtb
+            // 
+            this.rtb.Location = new System.Drawing.Point(446, 66);
+            this.rtb.Name = "rtb";
+            this.rtb.Size = new System.Drawing.Size(326, 345);
+            this.rtb.TabIndex = 1;
+            this.rtb.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rtb);
             this.Controls.Add(this.dgwRates);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -57,6 +67,7 @@ namespace Webszolgaltatas_IRF_07
         #endregion
 
         private System.Windows.Forms.DataGridView dgwRates;
+        private System.Windows.Forms.RichTextBox rtb;
     }
 }
 
