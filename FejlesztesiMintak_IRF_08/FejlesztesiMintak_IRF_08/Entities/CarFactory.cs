@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace FejlesztesiMintak_IRF_08.Entities
 {
-    class BallFactory : IToyFactory
+    class CarFactory : IToyFactory
     {
         public Toy CreateNew()
         {
-            return new Ball();
+            return new Car();
         }
     }
 }
