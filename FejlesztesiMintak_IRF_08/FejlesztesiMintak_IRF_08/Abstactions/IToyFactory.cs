@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FejlesztesiMintak_IRF_08.Abstactions
 {
-    interface IToyFactory
+    public interface IToyFactory
     {
         Toy CreateNew();
     }
