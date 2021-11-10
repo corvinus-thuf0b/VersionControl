@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace FejlesztesiMintak_IRF_08.Entities
 {
-    class BallFactory : IToyFactory
+    class PresentFactory : IToyFactory
     {
-        public Color BallColor { get; set; }
+        public Color BoxColor { get; set; }
+        public Color RibbonColor { get; set; }
 
         public Toy CreateNew()
         {
-            return new Ball(BallColor);
+            return new Present(BoxColor, RibbonColor);
         }
     }
 }

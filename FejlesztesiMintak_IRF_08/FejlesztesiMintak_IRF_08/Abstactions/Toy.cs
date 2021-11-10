@@ -15,7 +15,6 @@ namespace FejlesztesiMintak_IRF_08.Abstactions
             Height = 50;
             Width = 50;
             AutoSize = false;
-
             Paint += Toy_Paint;
         }
 
