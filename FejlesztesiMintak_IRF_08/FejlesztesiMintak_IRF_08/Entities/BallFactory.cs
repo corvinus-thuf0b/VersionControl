@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FejlesztesiMintak_IRF_08.Entities
 {
-    class BallFactory : IToyFactory
+    public class BallFactory : IToyFactory
     {
         public Color BallColor { get; set; }
 

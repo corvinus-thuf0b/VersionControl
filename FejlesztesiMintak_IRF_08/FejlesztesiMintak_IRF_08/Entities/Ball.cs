@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace FejlesztesiMintak_IRF_08.Entities
 {
-    class Ball : Toy
+    public class Ball : Toy
     {
         public SolidBrush BallColor { get; private set; }
 

@@ -17,8 +17,8 @@ namespace FejlesztesiMintak_IRF_08
         List<Toy> _toys = new List<Toy>();
         private Toy _nextToy;
 
-        IToyFactory _factory;
-        IToyFactory Factory
+        public IToyFactory _factory;
+        public IToyFactory Factory
         {
             get { return _factory; }
             set 
@@ -31,7 +31,6 @@ namespace FejlesztesiMintak_IRF_08
         public Form1()
         {
             InitializeComponent();
-            Factory = new BallFactory();
         }
 
         private void createTimer_Tick(object sender, EventArgs e)
